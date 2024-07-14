@@ -1,0 +1,73 @@
+baseURL: https://blog.crablabs.io 
+languageCode: en-us
+copyright: Crab Labs LLC
+languages: 
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - main: Blog
+          url: posts
+        - name: Archive
+          url: archives
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+        - name: Build Logs
+          url: logs
+params:
+  env: production
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: true
+  ShowToc: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+  
+  homeInfoParams:
+    Title: Hey there 
+    Content: Take a look at our other pages
+    buttons:
+      - name: Blog
+        url: posts
+      - name: Build Logs
+        url: logs
+  
+  socialIcons: # optional
+    - name: "GitHub"
+      url: "https://github.com/crablabsllc"
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/company/crablabs"
+    - name: "Website"
+      url: "https://crablabs.io"
+    - name: "YouTube"
+      url: "https://www.youtube.com/@CrabLabsLLC"
+  contact:
+    email: contact@crablabs.io    
+    phone: +1 (805)444-3544
+
+title: Crab Labs LLC
+theme: PaperMod
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search   
