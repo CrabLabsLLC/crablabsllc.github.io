@@ -1,2 +1,1 @@
-# crablabsllc.github.io
-Crab Labs 
+# Crab Labs Blog and Build Log Page
