@@ -3,7 +3,7 @@ name: Deploy Hugo site to Pages
 
 on:
   # Runs on pushes targeting the default branch
-  pull_request:
+  push:
     branches:
       - develop
 
@@ -64,6 +64,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3.0.1
 
   # Deployment job
   deploy:
