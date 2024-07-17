@@ -414,6 +414,6 @@ This is in no way standard nor is it in the KiCad standard library.
 
 First thing is to create a library is there isn't one already
 
-After the library is created
+After the library is created we want to create    
 
 
