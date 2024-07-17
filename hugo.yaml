@@ -1,0 +1,78 @@
+baseURL: https://blog.crablabs.io 
+languageCode: en-us
+copyright: "Crab Labs LLC © 2024" 
+title: Crab Labs
+paginate: 10
+mainsections: ["posts"]
+
+menu:
+  main:
+    - identifier: Blogs
+      name: Blogs
+      url: posts
+      weight: 5
+    - identifier: Archive
+      name: Archive
+      url: archives
+      weight: 5
+    - identifier: Search
+      name: Search
+      url: search/
+      weight: 10
+    - identifier: Tags
+      name: Tags
+      url: tags/
+      weight: 10
+    - identifier: Build Logs
+      name: Build Logs
+      url: logs
+      weight: 5
+
+params:
+  env: production
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+
+  HomeInfoParams:
+    Title: Hey there 
+    Content: Checkout our other pages below, if you're interested in working with us email us at contact@crablabs.io
+  
+  socialIcons: # optional
+    - name: "GitHub"
+      url: "https://github.com/crablabsllc"
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/company/crablabs"
+    - name: "Website"
+      url: "https://crablabs.io"
+    - name: "YouTube"
+      url: "https://www.youtube.com/@CrabLabsLLC"
+    - name: "KoFi"
+      url: "https://ko-fi.com/crablabs"
+    - name: "Instagram"
+      url: "https://instagram.com/crablabsllc"
+  contact:
+    email: contact@crablabs.io    
+    phone: +1 (805)444-3544
+
+theme: PaperMod
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search   
