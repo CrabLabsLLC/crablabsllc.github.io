@@ -406,4 +406,14 @@ Once all of the properties are finalized then the footprint is ready to be used 
 
 #### Custom Footprint Example
 
-Lets say we need to create a footprint for the NT3H2x11, an NFC 
+Lets say we need to creating a board with the NT3H2x11, an NFC Tag IC. After viewing the datasheet, the only form factor that would work in the design is this:
+
+![XQFN Drawing](/images/XQFNDrawing.png)
+
+This is in no way standard nor is it in the KiCad standard library.
+
+First thing is to create a library is there isn't one already
+
+After the library is created
+
+

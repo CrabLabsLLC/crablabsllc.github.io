@@ -64,6 +64,8 @@ params:
       url: "https://www.youtube.com/@CrabLabsLLC"
     - name: "KoFi"
       url: "https://ko-fi.com/crablabs"
+    - name: "Instagram"
+      url: "https://instagram.com/crablabsllc"
   contact:
     email: contact@crablabs.io    
     phone: +1 (805)444-3544
