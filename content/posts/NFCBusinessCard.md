@@ -2,6 +2,7 @@
 author: Orion Serup
 title: Designing your Own NFC Business Cards
 date: "2024-07-12T16:49:48-07:00"
+draft: true
 cover:
   image: /images/BusinessCardFront.jpg
   alt: Crab Labs NFC PCB Business Card
@@ -100,7 +101,7 @@ Once the project has been created, navigate to and open the schematic (the file 
 
 ![Empty Schematic](/images/EmptySchematic.jpg)
 
-Press "A" to add a symbol, this menu will appear. If you chose the ST25DV, then the component will be available, else you will need to add the component library to use it (see [here](#optional-importing-external-libraries) for tutorial)
+Press "A" to add a symbol, this menu will appear. If you chose the ST25DV, then the component will be available, else you will need to add the component library to use it (see [here](/posts/kicadimportexternlibs) for tutorial)
 
 ![Symbol Adder](/images/SymbolAdder.jpg)
 
@@ -144,6 +145,33 @@ If you would like a status LED and the tag that you chose supports it (has energ
 
 ![All Parts Placed](/images/AllPartsPlaced.jpg)
 
+### Wiring Components
+
+The next step is to properly connect the components so that the circuit is valid
+
+Before wiring can be completed the components should be moved as close to where they should be connected (e.g. the antenna tuning capacitor should be placed next to the antenna pins)
+
+An example of this would look like this:
+
+![Components Placed](/images/NFCComponentsPlaced.png)
+
+We see that the test points are near the pads which they will be connected to and the capacitor for V_EH and VCC are close to the pins. The antenna and tuning capacitor are in line with the pins which they should connect to (as per the datasheet).
+
+To begin wiring the components together, press "W" to begin placing wires, clicking on the pin connection point will also start wiring.
+
+Start by wiring the antenna to the tuning capacitor to the pins on the Tag IC, make sure to include the test points if your design has them:
+
+![Antenna Wired Up](/images/NFCAntennaWired.png)
+
+Your wires don't need to be in the same style as shown here, as long as they are connected you are good.
+
+Now connect the rest of the components in the same style, if you have to cross over another wire to complete a connection then 
+
+
+
+
+
+
 ### Assigning Component Footprints
 
 Before the circuit can be exported to a PCB, the components need to be assigned a physical footprint (i.e. what the connections to the board look like).
@@ -172,9 +200,9 @@ If you plan on having JLCPCB or another manufacturer assemble these boards then 
 
 Assign all of the footprints as needed
 
-The antenna will need it's own custom footprint, which will be created now
+The antenna will need it's own custom footprint, which will be created later
 
-#### Creating Custom Antenna Footprint
+### Antenna Footprint
 
 Antenna construction and geometry is very crucial in the performance of the NFC business card. It is recommended to calculate the antenna characteristics and geometry before implementing it as a footprint.
 
@@ -204,9 +232,6 @@ If you desire to create a custom shape other than rectangular, the formulas in t
 
 In order to create a custom footprint a custom footprint library must be created. See [this tutorial](/posts/kicadcreatelibs/) for guidance regarding the creation of libraries.
 
-
-
-#### Wiring Components
 
 ### Creating the Layout
 
