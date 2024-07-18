@@ -50,7 +50,7 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 
   HomeInfoParams:
-    Title: Hey there 
+    Title: All things Crab Labs
     Content: Checkout our other pages below, if you're interested in working with us email us at contact@crablabs.io
   
   socialIcons: # optional

@@ -37,9 +37,19 @@ Find a location to place the kicad_sym file, which is your library. For project 
 
 Once the library is created and placed, then symbols can be created and added to it.
 
-### Creating Custom Symbols
+## Creating Custom Symbols
+
+### The Symbol Editor
+
+All of this process will take place in the Symbol Editor, it is complex and feature rich.
+
+On the right hand side there will be a toolbox, these are all of the tools that are available for use during the process
+
+![Symbol Editor Toolbox](/images/SymbolEditorTools.png)
 
 Once in the Symbol editor a new symbol can be created by using Command+N or Ctrl+N
+
+### Naming the Symbol
 
 ![Symbol Creation](/images/SymbolCreation.jpg)
 
@@ -87,13 +97,13 @@ Once that has been done it will look like this:
 
 ![NT3H Symbol Created](/images/NT3HSymbolCreated.jpg)
 
-On the right hand side there will be a toolbox:
-
-![Symbol Editor Toolbox](/images/SymbolEditorTools.png)
+### Defining the Symbol Shape
 
 The first step in creating a symbol is defining the shape or the outline of the symbol, you can use any of the polygon tools or the oval tools to draw a shape in which to add pins to. This can be any shape but rectangular bodies are generally standard.
 
 ![Symbol Body Drawn](/images/SymbolRectDrawn.png)
+
+### Adding Pins
 
 The next step is to add the pins, if there are a lot of pins the body shape may need to be changed in order to be appropriately sized for the number of pins.
 
@@ -133,6 +143,8 @@ If these guidelines are followed, symbols should be easier to parse as well as t
 
 Once you have defined and placed all your pins, you should modify the symbol properties. This can be done by pressing "E" while not selecting anything in the Symbol Editor
 
+### Defining Symbol Properties
+
 ![Symbol Properties](/images/SymbolProperties.png)
 
 It is recommended to insert the name in value field, a link to the datasheet in the datasheet field, a small description in the description field, as well as the footprint if it is fixed and exists.
@@ -140,6 +152,8 @@ It is recommended to insert the name in value field, a link to the datasheet in 
 ![Symbol Properties Filled](/images/ExampleSymbolFields.png)
 
 Once the symbol fields are defined and the symbol has been cross checked against the data sheet, then the finishing touches should be applied.
+
+### Finishing Symbols
 
 Apply coloring to the symbol by clicking the outline polygon and pressing "E"
 
@@ -149,7 +163,7 @@ The default coloring for KiCad symbols is "Fill With Body Background Colors". Th
 
 Once the coloring is set, then press "Ctrl+S" or "Command+S" to save the symbol into a library.
 
-#### Custom Symbol Example
+### Custom Symbol Example
 
 A symbol will be created for a new component, the [NT3H2](https://octopart.com/datasheet/nt3h2211w0fttj-nxp+semiconductors-71112038) NFC Tag by NXP. Looking at the datasheet we can find a pin-out diagram for the available packages, I will be picking the TSSOP-8 Package at random.
 
@@ -199,9 +213,9 @@ This will create a folder called *.pretty, name it appropriately and find a plac
 
 ![New Library Created](/images/NewFootprintLibrary.png)
 
-### Creating Custom Footprints
+## Creating Custom Footprints
 
-#### Primer on Footprint Types
+### Primer on Footprint Types
 
 There are two major types of footprints:
 
@@ -212,7 +226,7 @@ Generally most components now days are SMD but there are still lots of component
 
 Looking at the data sheet for your device, there will be a section that details the footprint. If there are holes in that drawing then make a THT component, else make a SMD component
 
-#### The Footprint Editor
+### The Footprint Editor
 
 The footprint editor is a complex interface, the basic available tools are shown here:
 
@@ -222,7 +236,7 @@ These tools interact and are used with these layers
 
 ![PCB Layers](/images/PCBLayersExplanation.png)
 
-#### Using the Footprint Wizard
+### Using the Footprint Wizard
 
 The easiest way to create custom footprints with KiCad is by using the Footprint Wizard.
 
@@ -266,7 +280,7 @@ Once the dimensions are entered, then the footprint should be exported to the Fo
 
 Once in the Footprint editor the last steps will match that of a manually created footprint, see [here](#finalizing-a-footprint)
 
-#### Manual Footprint Creation
+### Manual Footprint Creation
 
 To create a footprint within the footprint editor select the library which shall contain the footprint and press "Ctrl+N" or "Command+N"
 
@@ -282,7 +296,7 @@ Find the drawing of the footprint you are trying to recreate in the data sheet, 
 
 From the drawing we can derive the proper pad dimensions, there may be more than one different pad shape; be careful when reading.
 
-##### Creating Pads
+#### Creating Pads
 
 From the drawing we can see that a pad is recommended to be .6mm x 1.55mm, in order to set the pad size to that we need to use the "Pad Properties" menu. This can be accessed via Edit -> Default Pad Properties or via the shortcut located here:
 
@@ -404,9 +418,9 @@ If the model is off axis or oriented incorrectly, it can be corrected via the ad
 
 Once all of the properties are finalized then the footprint is ready to be used in your projects.
 
-#### Custom Footprint Example
+### Custom Footprint Example
 
-Lets say we need to creating a board with the NT3H2x11, an NFC Tag IC. After viewing the datasheet, the only form factor that would work in the design is this:
+Lets say we need to creating a board with the NT3H2x11, an NFC Tag IC. There is a footprint available online, but I will be showing how to make the footprint from scratch. After viewing the datasheet, the only form factor that would work in the design is this:
 
 ![XQFN Drawing](/images/XQFNDrawing.png)
 
@@ -414,6 +428,46 @@ This is in no way standard nor is it in the KiCad standard library.
 
 First thing is to create a library is there isn't one already
 
-After the library is created we want to create    
+After the library is created we want to create an empty footprint, we will can it XQFN8, the name stated on the datasheet
 
+![XQFN Create Footprint](/images/NamingXQFN.png)
 
+Now we want to look at the datasheet and define the size of the pads:
+
+![XQFN Pad Size](/images/XQFNPad.png)
+
+Then we want to place the first pads using the spacing provided in the datasheet and add the rest of the pads roughly where they need to be:
+
+![XQFN Rough Placement](/images/XQFNRoughPlacement.png)
+
+We then need to fix the pin numbering, we enter in to the pad properties by pressing "E" on a pad and modifying the pad number:
+
+![Pad Number Edit](/images/XQFNChangePadNumber.png)
+
+![Pad Numbers Fixed](/images/XQFNNumberedPads.png)
+
+Once the numbering is fixed we need to move the pins in to the proper location according to the datasheet
+
+![X Location Fixed](/images/XQFNXPitch.png)
+
+![Y Location Fixed](/images/XQFNYPitch.png)
+
+![Spacing Fixed](/images/XQFNYSpacing.png)
+
+Now that the pads are properly placed let's add a fabrication indicator to show the component outline
+
+![Fabrication Added](/images/XQFNFabLayer.png)
+
+Then a Courtyard around the part:
+
+![Courtyard Added](/images/XQFNCourtyard.png)
+
+Followed by a Pin 1 indication
+
+![Marker Added](/images/XQFNSilkscreen.png)
+
+Last thing is to modify the footprint properties:
+
+![Modified Properties](/images/XQFNProperties.png)
+
+We can save and then use this footprint in the next project.
