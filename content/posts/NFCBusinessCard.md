@@ -2,6 +2,7 @@
 author: Orion Serup
 title: Designing your Own NFC Business Cards
 date: "2024-07-12T16:49:48-07:00"
+draft: true
 cover:
   image: /images/BusinessCardFront.jpg
   alt: Crab Labs NFC PCB Business Card
